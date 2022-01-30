@@ -1,8 +1,10 @@
 import aws from "aws-sdk";
 import crypto from "crypto";
-import { randomBytes } from "crypto";
+import dotenv from 'dotenv'
 import { promisify } from "util";
 const randomBytes = promisify(crypto.randomBytes);
+
+dotenv.config()
 
 const region = "us-east-1";
 const bucketName = "lasco-dev";
