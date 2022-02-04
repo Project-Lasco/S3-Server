@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Project-Lascaux/S3-Server#readme",
   "dependencies": {
     "aws-sdk": "^2.1066.0",
+    "cors": "^2.8.5",
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "s3": "^4.4.0"
