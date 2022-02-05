@@ -18,6 +18,14 @@ const s3 = new aws.S3({
   signatureVersion: "v4",
 });
 
+// removes artwork img from s3 bucket, takes in key to artwork (file path in s3 bucket)
+export async function delArt(artKey) {
+  // sets params for s3 function call
+  const params = { Bucket: 'lasco-dev', Key: artKey}
+  // deletes art and logs any errors (one-line if statement is neat)
+  await s3.deleteObject(params).promise()
+}
+
 export async function generateUploadURL(folder) {
   const rawBytes = await randomBytes(16);
   const imageName = rawBytes.toString("hex");
