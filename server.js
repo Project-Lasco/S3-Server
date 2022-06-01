@@ -11,7 +11,7 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(express.static("front"));
 app.use(cors({
-  origin: "http://localhost:3000"
+  origin: process.env.CLIENT_ALLOWED_URLS
 }))
 // uploads to profile-pics folder
 app.get("/s3", async (req, res) => {
@@ -48,4 +48,4 @@ app.post("/deleteArt", (req, res) => {
 //   // generates upload url, and sends it back
 // })
 
-app.listen(8454, () => console.log(`server listening at 8454`));
+app.listen(process.env.SERVER_PORT, () => console.log(`server listening at ${process.env.SERVER_PORT}`));
