@@ -11,7 +11,7 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(express.static("front"));
 app.use(cors({
-  origin: process.env.CLIENT_ALLOWED_URLS
+  origin: process.env.CLIENT_ALLOWED_URLS.split(" ")
 }))
 // uploads to profile-pics folder
 app.get("/upload-profile-pic", async (req, res) => {
