@@ -14,21 +14,21 @@ app.use(cors({
   origin: process.env.CLIENT_ALLOWED_URLS
 }))
 // uploads to profile-pics folder
-app.get("/s3", async (req, res) => {
+app.get("/upload-profile-pic", async (req, res) => {
   const url = await generateUploadURL('profile-pics/');
   console.log(url)
   res.send({url});
 });
 // uploads to artworks folder
 // TODO: think abt changing design of uploads
-app.get("/art", async (req, res) => {
+app.get("/upload-art", async (req, res) => {
   const url = await generateUploadURL('user-artwork/');
   console.log(url)
   res.send({url});
 });
 
 // deletes specified artwork url from db received from client
-app.post("/deleteArt", (req, res) => {
+app.post("/delete-art", (req, res) => {
   // parses json object of response first
   console.log("hello client")
   // const object = JSON.parse(req);
