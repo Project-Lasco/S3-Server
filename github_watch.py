@@ -13,9 +13,7 @@ while True:
         print("Already up to date. No build necessary")
     else:
         print("Updated. Installing dependencies and starting nodemon...")
-        p.kill()
+        # p.kill()
         subprocess.call(["killall", "-9", "node"])
-        # os.kill(p.pid, signal.SIGKILL)
         subprocess.Popen(["npm", "run", "dev"])
-        # subprocess.call(["npm", "run", "dev"])
     time.sleep(10)
