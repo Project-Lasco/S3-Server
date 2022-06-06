@@ -10,9 +10,9 @@ TIME_DELAY = 10
 # run the server for the first time
 p = subprocess.Popen(["npm", "run", "dev"])
 while True:
-    pulld = subprocess.check_output(["git", "pull"]).decode('utf-8')
+    git_changes = subprocess.check_output(["git", "pull"]).decode('utf-8')
     # checks if the pull had any changes
-    if "Already up to date." in pulld:
+    if "Already up to date." in git_changes:
         print("Already up to date. No install necessary")
     else:
         print("Updated. Installing dependencies and starting nodemon...")
