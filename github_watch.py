@@ -5,15 +5,19 @@ import subprocess
 
 import signal
 
+TIME_DELAY = 10
 
+# run the server for the first time
 p = subprocess.Popen(["npm", "run", "dev"])
 while True:
     pulld = subprocess.check_output(["git", "pull"]).decode('utf-8')
+    # checks if the pull had any changes
     if "Already up to date." in pulld:
-        print("Already up to date. No build necessary")
+        print("Already up to date. No install necessary")
     else:
         print("Updated. Installing dependencies and starting nodemon...")
-        # p.kill()
+        # kills all running node processes
         subprocess.call(["killall", "-9", "node"])
+        # restarts the node process
         subprocess.Popen(["npm", "run", "dev"])
-    time.sleep(10)
+    time.sleep(TIME_DELAY)
