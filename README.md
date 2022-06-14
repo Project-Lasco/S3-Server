@@ -13,7 +13,8 @@ This repo holds the code for an express server that relays requests from the cli
 ## Getting Started
 
 To set up the server for local development, follow these instructions:
-1. `cd /home/ubuntu/data.lascoapp.com && python3 github_watch.py`
+1. ssh data.lascoapp.com
+2. `cd /home/ubuntu/data.lascoapp.com && python3 github_watch.py`
 
 You can also `screen python3 github_watch.py` to run it in the background. The script will watch for changes in github, and pull if necessary.  
 
